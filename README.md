@@ -1,6 +1,6 @@
 # go-yaml-migration-tool
 
-`yaml-import-migrator` is a lightweight CLI tool that scans Go projects and automatically migrates deprecated YAML imports.
+`go-yaml-migration-tool` is a lightweight CLI tool that scans Go projects and automatically migrates deprecated YAML imports.
 
 ## Background
 
