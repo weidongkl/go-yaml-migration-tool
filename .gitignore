@@ -31,3 +31,4 @@ go.work.sum
 # .idea/
 # .vscode/
 go-yaml-migration-tool
+dist

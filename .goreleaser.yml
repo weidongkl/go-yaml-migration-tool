@@ -1,0 +1,51 @@
+---
+version: 2
+project_name: go-yaml-migration-tool
+
+changelog:
+  sort: asc
+  filters:
+    exclude:
+      - "^docs:"
+      - "^test:"
+
+
+release:
+  github:
+    owner: weidongkl
+    name: go-yaml-migration-tool
+
+# 构建配置
+builds:
+  - id: go-yaml-migration-tool
+    main: .
+    binary: go-yaml-migration-tool
+    env:
+      - CGO_ENABLED=0
+    goos:
+      - darwin
+      - linux
+      - windows
+    goarch:
+      - amd64
+      - arm64
+
+    ignore:
+      - goos: darwin
+        goarch: arm64
+      - goos: windows
+        goarch: arm64
+
+# 归档配置
+archives:
+  - format: tar.gz
+    name_template: "{{ .ProjectName }}_{{ .Version }}_{{ .Os }}_{{ .Arch }}"
+    builds:
+      - go-yaml-migration-tool
+
+checksum:
+  name_template: "checksums.txt"
+
+signs:
+  - artifacts: checksum
+
